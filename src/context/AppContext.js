@@ -70,6 +70,12 @@ export const AppReducer = (state, action) => {
             return {
                 ...state
             }
+        case 'UPDATE_BUDGET':
+            console.error('Error: Payload missing in UPDATE_BUDGET');
+            return {
+                ...state,
+             };
+
 
         default:
             return state;
