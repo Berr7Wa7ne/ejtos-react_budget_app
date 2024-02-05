@@ -9,6 +9,7 @@ import AllocationForm from './components/AllocationForm';
 import RemainingBudget from './components/Remaining';
 import Currency from './components/Currency';
 
+
 const App = () => {
     return (
         <AppProvider>
