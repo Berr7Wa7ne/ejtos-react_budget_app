@@ -89,5 +89,24 @@
   .white-cross::before {
     transform: translate(-50%, -50%) rotate(90deg);
   }
+
+  /* Add these styles for the red circle */
+.red-circle {
+    background-color: red;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .white-hyphen {
+    width: 20px;
+    height: 3px;
+    background-color: white;
+  }
+  
   
   
