@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-  const { budget, dispatch } = useContext(AppContext);
+  const { budget, dispatch, expenses } = useContext(AppContext);
   const [editable, setEditable] = useState(false);
   const [newBudget, setNewBudget] = useState(budget);
   const upperLimit = 20000;
+
+  const totalSpending = expenses.reduce((total, item) => total + item.cost, 0);
 
   const handleIncrease = () => {
     setNewBudget((prevBudget) => Math.min(prevBudget + 10, upperLimit));
@@ -19,8 +21,10 @@ const Budget = () => {
     if (newBudget > upperLimit) {
       // Display error message and do not update the budget
       alert("Error: Budget cannot exceed £20,000");
-    } else {
-      // Include the payload field with the new budget value
+    }else if (newBudget < totalSpending) {
+        alert("Error: Budget cannot be lower than spending");
+    }else{
+        // Include the payload field with the new budget value
       dispatch({
         type: 'UPDATE_BUDGET',
         payload: newBudget, // Include the new budget value in the payload
